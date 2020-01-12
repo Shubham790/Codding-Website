@@ -24,10 +24,10 @@ export default class User extends Component
         {
             return <Redirect to="/"></Redirect>
         }
-        return <>
+        return <div >
         <Nav/>
-         <div>
-           <div class="card11">
+         <div className="use1">
+           <div class="card11" >
            <div class="card12"><p>&nbsp;&nbsp;Interview Preparation</p><img class="new-banner-svg" alt="New" src="https://hrcdn.net/fcore/assets/svgs/new-banner-341e41b06d.svg"/></div>
            <div class="container123">
               <h4><b>Interview Preparation Kit</b></h4> 
@@ -56,7 +56,6 @@ export default class User extends Component
             </div>
           </div>
           </div>
-          
-        </>
+        </div>
     }
 }

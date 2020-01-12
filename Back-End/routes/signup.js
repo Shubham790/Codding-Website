@@ -24,20 +24,29 @@ router.post('/',async (req,res)=>{
         return res.status(401).send("email already exist");
     }
     else{
-    emailExists.verify(req.body.email,function(err,response){
-        if(response)
-        {
         const name=req.body.name;
         const email=req.body.email;
         const password=req.body.password;
-        const newUser=new user({name,email,password});
+        var isUser=false,isAdmin=false,isSuperAdmin=false;
+        if(email==process.env.user1){
+            isSuperAdmin=true;
+        
+        }    
+        else if(email==process.env.user2)
+        {
+               isAdmin=true;
+        }  
+        else{
+            isUser=true;
+        }  
+        const newUser=new user({name,email,password,isUser,isAdmin,isSuperAdmin});
         newUser.save().then(()=>res.json('user added!'))
         .catch(err=>res.status(400).json('Error: '+ err));
         let transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: process.env.user,
-                pass: process.env.password
+                user: "workprivate18@gmail.com",
+                pass: "S17761693@"
             }
         });
         let mailOptions = {
@@ -50,13 +59,8 @@ router.post('/',async (req,res)=>{
             if (err) {
                 return res.status(401).send("error");
             }
+            else
             return res.send("Signup Succesfully");
-        });
-       }
-        else
-        {
-            return res.status(401).send("email address is not valid");
-        }
         });
     }
 });

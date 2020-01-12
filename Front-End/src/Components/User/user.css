@@ -26,6 +26,11 @@
   .use1{
     background-color:whitesmoke;
   }
+  .Dashboard1{
+    margin-left:50px;
+    padding:5px;
+    margin-top:5px;
+  }
   .button3 {font-size: 16px;}
   .new-banner-svg{
       width:100px;

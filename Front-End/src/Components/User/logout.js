@@ -4,7 +4,7 @@ export default class Logout extends Component{
     constructor(props)
     {
         super(props)
-        localStorage.removeItem("token"); 
+        sessionStorage.removeItem("token"); 
         alert("You have been logged out sucessfully");
     }
 

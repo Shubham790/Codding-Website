@@ -9,7 +9,7 @@ class Login extends Component
     constructor(props)
     {
         super(props);
-        const token=localStorage.getItem("token");
+        const token=sessionStorage.getItem("token");
         let l=true
         if(token==null)
         {
@@ -43,7 +43,14 @@ class Login extends Component
        axios.post('http://localhost:5000/login',users)
         .then((res) => {
                // window.location="/j";
-               localStorage.setItem("token","ehflhdf");
+               const a=res.data.isUser;
+               const b=res.data.isAdmin;
+               const c=res.data.isSuperAdmin;
+               sessionStorage.setItem("isUser",a);
+               sessionStorage.setItem("isAdmin",b);
+               sessionStorage.setItem("isSuperAdmin",c);
+               sessionStorage.setItem("token","ehflhdf");
+            //    sessionStorage.setItem("username",)
                this.setState({
                    l:true
                })
@@ -56,7 +63,7 @@ class Login extends Component
     {
         if(this.state.l)
         {
-            return <Redirect to="/User"/>
+            return <Redirect to='/user'/>
         }
         return<div className="container-fluid background">
         <div className="row">

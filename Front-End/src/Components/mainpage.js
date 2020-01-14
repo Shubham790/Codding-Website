@@ -28,7 +28,6 @@ export default class MainPage extends Component
         <Route exact path="/Login" component={Login}></Route>
         <Route exact path="/User" component={User}></Route>
         <Route exact path="/logout" component={Logout}></Route>
-        //sahil
         </Switch>
        </div>
     }

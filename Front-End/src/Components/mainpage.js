@@ -11,6 +11,7 @@ import Sample1 from './nav/sample1';
 import Mcq from './nav/mcq';
 import User from "./User/user";
 import Logout from './User/logout';
+import Profile from './User/profile';
 export default class MainPage extends Component
 {
     render()
@@ -28,6 +29,8 @@ export default class MainPage extends Component
         <Route exact path="/Login" component={Login}></Route>
         <Route exact path="/User" component={User}></Route>
         <Route exact path="/logout" component={Logout}></Route>
+        <Route exact path="/Profile" component={Profile}></Route>
+
         </Switch>
        </div>
     }

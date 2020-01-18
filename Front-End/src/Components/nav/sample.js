@@ -28,7 +28,7 @@ export default class Sample extends Component {
             {this.state.que.map((a) =>
                 <div class="card" style={{ marginLeft: "35px" }}>
                     <div class="container">
-                        <a href="/sample1">
+                        <a href={`/sample1/${a.questionname}`} params={{question:a.questionname}}>
                             <h4>{a.questionname}</h4>
                         </a>
                         <div class="card-details pmT" style={{ float: "left" }}>

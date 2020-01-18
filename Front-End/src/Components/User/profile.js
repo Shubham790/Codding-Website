@@ -10,8 +10,21 @@ export default class Profile extends Component
 {
     constructor(){
         super();
+        this.state={
+            data:'',
+            username:''
+        }
         this.submit1=this.submit1.bind(this);
-
+    }
+    componentDidMount(){
+    setTimeout(()=>{Axios.post('http://localhost:5000/login/profile',{username:this.props.match.params.user1})
+        .then((res)=>{
+        console.log(res);
+            this.setState({data:res.data})
+        })
+        .catch(res=>{
+            //alert('error');
+        })},100)
     }
     submit1(e){
     e.preventDefault();
@@ -23,10 +36,11 @@ export default class Profile extends Component
     var degree=e.target.degree.value;
     var branch=e.target.branch.value;
     var address=e.target.address.value;
-    Axios.put('http://localhost:5000/login',{password,mobile,institute,cgpa,yearofcomplete,degree,branch,address})
+   
+    Axios.put('http://localhost:5000/login',{username:this.props.match.params.user1,password,mobile,institute,cgpa,yearofcomplete,degree,branch,address})
     .then((res) => {
             alert('Data Updated successfully');
-            // window.location="/login";
+            this.setState({});
         })
     .catch((error) => {
         alert('error');
@@ -34,20 +48,10 @@ export default class Profile extends Component
     }
     render()
     {
-        return<>
+        //this.setState({username:this.props.match.params.user1}) ;
+               return<>
         <Nav></Nav>
-        <div>
-        {/* <form onSubmit={this.submit1}>
-           Password <input type="text" name="password" ref={(input) => this.input = input}></input><br/>
-           mobile<input type="text" name="mobile" ref={(input) => this.input = input}/><br/>
-           institute<input type="text" name="institute" ref={(input) => this.input = input}/><br/>
-           cgpa<input type="text" name="cgpa" ref={(input) => this.input = input}/><br/>
-           Year of Completion<input name="yearofcom" type="text" ref={(input) => this.input = input}/><br/>
-           degree<input type="text" name="degree" ref={(input) => this.input = input}/><br/>
-           branch<input type="text" name="branch" ref={(input) => this.input = input}/><br/>
-           address<input type="text" name="address" ref={(input) => this.input = input}/><br/>
-           <input type="submit" value="save changes"></input>"
-        </form> */}
+        <div class="wholeform">
         <div>
         <h2><center>Profile</center></h2>
         <form className="profileform" onSubmit={this.submit1}>
@@ -55,24 +59,24 @@ export default class Profile extends Component
                 <img src={ima} alt="Avatar" class="profileavatar"/>
             </div>
            <center><h1 className="profileform">User Deatails.</h1></center>
-            <center><h3><b><u>User name</u></b></h3></center>
+    <center><h3><b><u>{this.props.match.params.user1}</u></b></h3></center>
             <div class="profilecontainer">
             <table className="table table-bordered">
             <tr>
-            <td><label className="profilestyle">Password</label><br></br><input type="text" name="password" ref={(input) => this.input = input}></input></td>
-            <td><label className="profilestyle">Year of Completion</label><br></br><input name="yearofcom" type="text" ref={(input) => this.input = input}/><br/></td>
+            <td><label className="profilestyle">Password</label><br></br><input type="password" name="password" value={this.state.data.password} ref={(input) => this.input = input}></input></td>
+            <td><label className="profilestyle">Year of Completion</label><br></br><input name="yearofcom" type="text" value={this.state.data.yearofcomplete} ref={(input) => this.input = input}/><br/></td>
             </tr>
             <tr>
-            <td><label className="profilestyle">Institute</label><br></br><input type="text" name="institute" ref={(input) => this.input = input}/><br/></td>
-            <td><label className="profilestyle">Cgpa</label><br></br><input type="text" name="cgpa" ref={(input) => this.input = input}/><br/></td>
+            <td><label className="profilestyle">Institute</label><br></br><input type="text" name="institute" value={this.state.data.institute} ref={(input) => this.input = input}/><br/></td>
+            <td><label className="profilestyle">Cgpa</label><br></br><input type="text" name="cgpa" value={this.state.data.cgpa} ref={(input) => this.input = input}/><br/></td>
             </tr>
             <tr>
-            <td><label className="profilestyle">Mobile No</label><br></br><input type="text" name="mobile" ref={(input) => this.input = input}/><br/></td>
-            <td><label className="profilestyle">Degree</label><br></br><input type="text" name="degree" ref={(input) => this.input = input}/><br/></td>
+            <td><label className="profilestyle">Mobile No</label><br></br><input type="text" name="mobile" value={this.state.data.mobile}  ref={(input) => this.input = input}/><br/></td>
+            <td><label className="profilestyle">Degree</label><br></br><input type="text" name="degree" value={this.state.data.degree}  ref={(input) => this.input = input}/><br/></td>
             </tr>
             <tr>
-            <td><label className="profilestyle">Branch</label><br></br><input type="text" name="branch" ref={(input) => this.input = input}/><br/></td>
-            <td><label className="profilestyle">Address</label><br></br><input type="text" name="address" ref={(input) => this.input = input}/><br/></td>
+            <td><label className="profilestyle">Branch</label><br></br><input type="text" name="branch" value={this.state.data.branch}  ref={(input) => this.input = input}/><br/></td>
+            <td><label className="profilestyle">Address</label><br></br><input type="text" name="address" value={this.state.data.address}  ref={(input) => this.input = input}/><br/></td>
             </tr>
             </table>
             </div>

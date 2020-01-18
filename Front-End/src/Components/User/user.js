@@ -11,6 +11,7 @@ export default class User extends Component
         super(props);
         const token=sessionStorage.getItem("token");
         let l=true
+        console.log(this.props.context);
         if(token==null)
         {
             l=false
@@ -26,7 +27,7 @@ export default class User extends Component
             return <Redirect to="/"></Redirect>
         }
         return <div >
-        <Nav/>
+        <Nav username={this.props.match.params.user1}/>
         <div className="Dashboard1"><h2><b>Dashboard</b></h2></div>
          <div className="use1">
            <div class="card11" >

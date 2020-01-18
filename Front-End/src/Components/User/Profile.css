@@ -7,9 +7,13 @@
     width: 10%;
     border-radius: 50%;
   }
-  .profileform {border: 3px solid lightblue;}
+  .profileform {border: 3px solid white;}
   .profilecontainer {
     padding: 16px;
+   
+  }
+  .wholeform{
+    background-color: #CBD5CE     ; 
   }
   .cancelbtn {
     width: auto;

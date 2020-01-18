@@ -27,7 +27,7 @@ export default class Navbar extends Component
                <Link className="nav-link" to="/user">Home<span className="sr-only">(current)</span></Link>
             </li>
             <li className="nav-item">
-               <Link className="nav-link" to="/Profile">Profile</Link>
+               <Link className="nav-link" to={`/Profile/${this.props.username}`} params={{username:this.props.username}}>Profile</Link>
             </li>
             <li className="nav-item">
                <Link className="nav-link" to="/Tests">Tests</Link>
@@ -36,6 +36,7 @@ export default class Navbar extends Component
                <Link className="nav-link" to="/mcq">Change Password</Link>
             </li>
           </ul>
+          {this.props.username}
             <Link className="btn btn-outline-danger my-2 my-sm-2" to="/logout" >Logout</Link>
             &nbsp;&nbsp;&nbsp;
         </div>

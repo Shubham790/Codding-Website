@@ -21,6 +21,8 @@ const sampleRouter=require('./routes/sample');
 const McqRouter=require('./routes/mcq');
 const Compiler=require('./routes/sample1');
 const forgot=require('./routes/forgot');
+const test=require("./routes/test")
+const userDetail=require("./routes/userDetail")
 app.use('/',express.static('public/build'));
 app.use('/signup',signupRouter);
 app.use('/login',loginRouter);
@@ -29,3 +31,5 @@ app.use('/sample',sampleRouter);
 app.use('/Compiler',Compiler);
 app.use('/mcq',McqRouter);
 app.use('/forgot',forgot);
+app.use("/createTest",test);
+app.use("/userDetail",userDetail);

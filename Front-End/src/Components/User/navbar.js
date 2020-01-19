@@ -28,7 +28,7 @@ export default class Navbar extends Component {
           </li>
           <li className="nav-item">
           {this.state.c=="true"?<span></span>:this.state.b=="true"?
-            <Link className="nav-link" to="/createtest">CreateTest</Link>:
+            <Link className="nav-link" to="/createTest">CreateTest</Link>:
              <Link className="nav-link" to="/test">Tests</Link>
             }
           </li>

@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import Axios from 'axios';
- 
+import Footer from "../nav/footer";
+import Nav from "../User/navbar";
 export default class Test extends Component{
     constructor(){
     super();
@@ -97,6 +98,7 @@ export default class Test extends Component{
     }
     render(){
         return <>
+        <Nav></Nav>
          Contest Name:<input type="text" name="name1" value={this.state.ContestName} onChange={this.name1}/><br/>
          Start Time :<input type="text" name="start" value={this.state.StartTime} onChange={this.start1}/> <input type="text" value={this.state.StartDay} onChange={this.ti}/><br/>
          End Time :<input type="text" name="end" value={this.state.EndTime} onChange={this.end1}/> <input type="text" value={this.state.EndDay} onChange={this.tj}/><br/>
@@ -132,6 +134,7 @@ export default class Test extends Component{
         <button type="submit" value="submit"/>
         </form>
         <input type="submit" value="Create Test " onClick={this.submit}/>
+        <Footer></Footer>
         </>
     
     }

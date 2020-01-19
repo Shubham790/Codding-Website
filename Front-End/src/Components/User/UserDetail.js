@@ -47,9 +47,9 @@ export default class StudentDetail extends Component
                                 </tr>
                                 {
                                    this.state.dat.map(a=>{
-                                      return <tr><td>{a.name}</td><td>{a.email}</td><td><form onSubmit={this.change}>
+                                      return a.isUser||a.isAdmin?<tr><td>{a.name}</td><td>{a.email}</td><td><form onSubmit={this.change}>
                                       <input type="submit" name="del" value={a._id}/>
-                                      </form></td></tr>
+                                      </form></td></tr>:<span/>
                                    })
                                 }
                             </table>

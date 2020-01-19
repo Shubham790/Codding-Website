@@ -18,7 +18,7 @@ export default class Navbar extends Component {
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <span className="navbar-brand"><img id="img" src={ss1} className='img-fluid gg' /><u>SackerRank</u></span>
+        <span className="navbar-brand"><img id="img" src={ss1} className='img-fluid gg' />&nbsp;&nbsp;<u>SackerRank</u></span>
         <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
           <li className="nav-item active">
             <Link className="nav-link" to="/user">Home<span className="sr-only">(current)</span></Link>

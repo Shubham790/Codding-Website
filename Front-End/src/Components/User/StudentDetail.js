@@ -34,7 +34,7 @@ export default class StudentDetail extends Component
                                 </tr>
                                 {
                                    this.state.dat.map(a=>{
-                                      return <tr><td>{a.name}</td><td>{a.email}</td><td><button>Delete</button></td></tr>
+                                      return <tr><td>{a.name}</td><td>{a.email}</td><td><button onClick={this.change}>Delete</button></td></tr>
                                    })
                                 }
                             </table>

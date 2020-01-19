@@ -1,16 +1,17 @@
-#code1776 {
-    background: url("http://i.imgur.com/2cOaJ.png");
-    background-attachment: local;
-    background-repeat: no-repeat;
-    padding-left: 35px;
-    padding-top: 8px;
-    border: solid;
-}
-
-#input1776 {
-    border: solid;
-}
-
-#output {
-    border: solid;
-}
+#code1776{
+   background:url("http://i.imgur.com/2cOaJ.png");
+   background-attachment: local;
+   background-repeat: no-repeat;
+   padding-left: 40px;
+   padding-top: 18px;
+   border: solid;
+   background-size:39px;
+   }
+   #input1776
+   {
+       border: solid;
+   }
+   #output
+   {
+                     border: solid;
+   }

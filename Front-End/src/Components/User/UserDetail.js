@@ -4,13 +4,16 @@ import { render } from "react-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "../nav/footer";
 import Nav from "../User/navbar";
+import { Redirect } from "react-router-dom";
+var b=0;
 export default class StudentDetail extends Component
 {
     constructor()
     {
         super();
+        b=0;
         this.state={
-            dat:[]
+            dat:[],
         }
         Axios.post("http://localhost:5000/userDetail","ss")
         .then((res)=>{
@@ -28,7 +31,7 @@ export default class StudentDetail extends Component
     Axios.delete('http://localhost:5000/userDetail/deleteuser',{data:{sss:a}})
     .then(res=>{
        alert('user deleted');
-       window.location="/StudentDetail";
+      window.location="/UserDetail"
     })
     .catch(res=>{
     console.log('user not deleted');
@@ -57,33 +60,33 @@ export default class StudentDetail extends Component
         return <>
         <Nav></Nav>
          <center><h1>User Details</h1></center>
-            <table className="table table-bordered">
+            <table class="table">
+            <thead class="table-dark">
                                 <tr>
-                                    <td><b>UserName</b></td>
-                                    <td><b>Email</b></td>
-                                    <td><b>Delete User</b></td>
-                                    <td><b>Add Admin</b></td>
-                                    <td><b>Remove Admin</b></td>
+                                    <td scope="col"><b>Sr.No</b></td>
+                                    <td scope="col"><b>UserName</b></td>
+                                    <td scope="col"><b>Email</b></td>
+                                    <td scope="col"><b>Delete User</b></td>
+                                    <td scope="col"><b>Add Admin</b></td>
+                                    <td scope="col"><b>Remove Admin</b></td>
                                 </tr>
-                                {
-                                   this.state.dat.map(a=>{
-                                      return a.isUser||a.isAdmin?<tr><td>{a.name}</td><td>{a.email}</td><td>
-                                      <button onClick={()=>this.change(a._id)}>
-                                          Delete
-                                      </button>
-                                      </td><td>
-                                      <button onClick={()=>this.change1(a._id)}>
-                                         Add Admin
-                                      </button>
-                                      </td><td>
-                                      <button onClick={()=>this.change2(a._id)}>
-                                         Remove Admin
-                                      </button>
-                                      </td></tr>:<span></span>
-                                   })
-                                }
-                            </table>
-                            <Footer></Footer>
+            </thead>
+        {
+         this.state.dat.map(a=>{
+         return a.isUser||a.isAdmin?<tr><td>{b=b+1}</td><td>{a.name}</td><td>{a.email}</td>
+        <td>
+        <button onClick={()=>this.change(a._id)}>
+         Delete
+         </button>
+        </td>
+        <td>
+         <button onClick={()=>this.change1(a._id)}>Add Admin</button>
+        </td>
+        <td>
+        <button onClick={()=>this.change2(a._id)}>Remove Admin</button>
+        </td></tr>:<span></span>})}
+        </table>
+        <Footer></Footer>
         </>
     }
 }

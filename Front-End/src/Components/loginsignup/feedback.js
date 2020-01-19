@@ -57,7 +57,7 @@ class Feedback extends Component {
                         </div>
                         <div className="form-group">
                             <b> <label >Leave Feedback Here</label></b>
-                            <textarea rows="4" cols="45" value={this.state.text} onChange={this.onChangeText}></textarea>
+                            <textarea style={{resize:"none"}} rows="4" cols="45" value={this.state.text} onChange={this.onChangeText}></textarea>
                         </div>
                         <button type="submit" className="btn btn-success btn-block button" required>Submit</button>
                     </form>

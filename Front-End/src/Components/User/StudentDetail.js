@@ -37,7 +37,7 @@ export default class StudentDetail extends Component
         return <>
         <Nav></Nav>
          <center><h1>User Details</h1></center>
-            <table className="table table-bordered">
+            <table className="table table-bordered table-dark">
                                 <tr>
                                     <td><b>UserName</b></td>
                                     <td><b>Email</b></td>

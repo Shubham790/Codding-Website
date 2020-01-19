@@ -13,7 +13,6 @@ router.post('/',async (req,res)=>{
 );
 router.delete('/deleteuser',async (req,res)=>{
  res.set('Content-Type',"application/json");
-console.log(req.body.sss);
     User.deleteOne({_id:req.body.sss})
     .then(res1=>res.send(res1))
     .catch(res1=>res.status(401).send("unauthored"));
@@ -21,7 +20,6 @@ console.log(req.body.sss);
 })
 router.post('/admin',async (req,res)=>{
     res.set('Content-Type',"application/json");
-console.log(req.body.sss);
     User.updateOne({_id:req.body.sss} , {$set: {isAdmin:true,isUser:false}})
     .then(res1=>res.send(res1))
     .catch(res1=>res.status(401).send("unauthored"));
@@ -29,7 +27,6 @@ console.log(req.body.sss);
 })
 router.post('/radmin',async (req,res)=>{
     res.set('Content-Type',"application/json");
-console.log(req.body.sss);
     User.updateOne({_id:req.body.sss} , {$set: {isAdmin:false,isUser:true}})
     .then(res1=>res.send(res1))
     .catch(res1=>res.status(401).send("unauthored"));

@@ -46,35 +46,21 @@ export default class User extends Component {
             <Link to="/Question"><button class="button123 button3">Continue Practice</button></Link>
           </div>
         </div>
-        <div class="card11">
-          <div class="card12"><p>&nbsp;&nbsp;Tutorial</p><img class="new-banner-svg" alt="New" src="https://hrcdn.net/fcore/assets/svgs/new-banner-341e41b06d.svg" /></div>
+      </div>
+      <div className="Dashboard1"><h2><b>Mcq</b></h2></div>
+      <div className="use1">
+        <div class="card11" >
+          <div class="card12"><p>&nbsp;&nbsp;C,C++</p><img class="new-banner-svg" alt="New" src="https://hrcdn.net/fcore/assets/svgs/new-banner-341e41b06d.svg" /></div>
           <div class="container123">
-            <h4><b>30 Days Of Code</b></h4>
+            <h4><b>Easy Mcq</b></h4>
             <Link to="/Question"><button class="button123 button3">Continue Practice</button></Link>
           </div>
         </div>
-      </div>
-      <div className="Dashboard1"><h2><b>Tutorial</b></h2></div>
-      <div className="use1">
-        <div class="card11" >
-          <div class="card12"><p>&nbsp;&nbsp;Interview Preparation</p><img class="new-banner-svg" alt="New" src="https://hrcdn.net/fcore/assets/svgs/new-banner-341e41b06d.svg" /></div>
-          <div class="container123">
-            <h4><b>Interview Preparation Kit</b></h4>
-            <Link to="/Question"><button class="button123 button3">View Tutorial</button></Link>
-          </div>
-        </div>
         <div class="card11">
-          <div class="card12"><p>&nbsp;&nbsp;Tutorial</p><img class="new-banner-svg" alt="New" src="https://hrcdn.net/fcore/assets/svgs/new-banner-341e41b06d.svg" /></div>
+          <div class="card12"><p>&nbsp;&nbsp;File Handling</p><img class="new-banner-svg" alt="New" src="https://hrcdn.net/fcore/assets/svgs/new-banner-341e41b06d.svg" /></div>
           <div class="container123">
-            <h4><b>10 Days of Statistics</b></h4>
-            <Link to="/Question"> <button class="button123 button3">Start Tutorial</button></Link>
-          </div>
-        </div>
-        <div class="card11">
-          <div class="card12"><p>&nbsp;&nbsp;30 Days of code</p><img class="new-banner-svg" alt="New" src="https://hrcdn.net/fcore/assets/svgs/new-banner-341e41b06d.svg" /></div>
-          <div class="container123">
-            <h4><b>Learn to code in 30 days</b></h4>
-            <Link to="/Question"><button class="button123 button3">Start Tutorial</button></Link>
+            <h4><b>Diffcult Mcq</b></h4>
+            <Link to="/Question"> <button class="button123 button3">Continue Practice</button></Link>
           </div>
         </div>
       </div>

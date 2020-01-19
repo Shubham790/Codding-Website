@@ -6,11 +6,12 @@ import "./navbar.css"
 export default class Navbar extends Component {
   render() {
     return <div><nav className="navbar navbar-expand-lg navbar-dark bg-custom-2">
+    <img id="img" src={ss1} className='gg' />&nbsp;&nbsp;<Link to="/" style={{color:"black"}}><h5><u>SackerRank</u></h5></Link>&nbsp;&nbsp;&nbsp;&nbsp;
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <span className="navbar-brand"><img id="img" src={ss1} className='img-fluid gg' />&nbsp;&nbsp;<u>SackerRank</u></span>
+        {/* <span className="navbar-brand"><img id="img" src={ss1} className='img-fluid gg' />&nbsp;&nbsp;<u>SackerRank</u></span> */}
         <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
           <li className="nav-item active">
             <Link className="nav-link" to="/">Home<span className="sr-only">(current)</span></Link>

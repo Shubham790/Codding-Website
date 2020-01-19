@@ -7,9 +7,9 @@ export default class Navbar extends Component {
   constructor() {
     super();
     this.state = {
-      a: localStorage.getItem("isUser"),
-      b: localStorage.getItem("isAdmin"),
-      c: localStorage.getItem("isSuperAdmin")
+      a: sessionStorage.getItem("isUser"),
+      b: sessionStorage.getItem("isAdmin"),
+      c: sessionStorage.getItem("isSuperAdmin")
     }
   }
   render() {
@@ -27,10 +27,19 @@ export default class Navbar extends Component {
             <Link className="nav-link" to='/Profile'>Profile</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/Tests">Tests</Link>
+          {this.state.c=="true"?<span></span>:this.state.b=="true"?
+            <Link className="nav-link" to="/createtest">CreateTest</Link>:
+             <Link className="nav-link" to="/test">Tests</Link>
+            }
+          </li>
+          <li className="nav-item">
+          {this.state.c=="true"? <Link className="nav-link" to="/UserDetail">UserDetails</Link>:this.state.b=="true"?
+            <Link className="nav-link" to="/StudentDetail">StudentDetail</Link>:
+             <span></span>
+            }
           </li>
         </ul>
-        {sessionStorage.getItem("username")}
+       <h5>{sessionStorage.getItem("username")}</h5> &nbsp;&nbsp;&nbsp;
         <Link className="btn btn-outline-danger my-2 my-sm-2" to="/logout" >Logout</Link>
         &nbsp;&nbsp;&nbsp;
         </div>

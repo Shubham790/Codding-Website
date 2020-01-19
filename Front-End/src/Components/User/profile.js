@@ -58,7 +58,7 @@ export default class Profile extends Component {
                         <div class="profileimgcontainer">
                             <img src={ima} alt="Avatar" class="profileavatar" />
                         </div>
-                        <center><h1 className="profileform">User Deatails.</h1></center>
+                        <center><h1 className="profileform">Details.</h1></center>
                         <center><h3><b><u>{sessionStorage.getItem("username")}</u></b></h3></center>
                         <div class="profilecontainer">
                             <table className="table table-bordered">

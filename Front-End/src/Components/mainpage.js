@@ -12,6 +12,8 @@ import Mcq from './nav/mcq';
 import User from "./User/user";
 import Logout from './User/logout';
 import Profile from './User/profile';
+import UserDetail from "./User/UserDetail";
+import StudentDetail from "./User/StudentDetail";
 export default class MainPage extends Component {
     render() {
         return <div>
@@ -28,7 +30,8 @@ export default class MainPage extends Component {
                 <Route exact path="/User" component={User}></Route>
                 <Route exact path="/logout" component={Logout}></Route>
                 <Route exact path="/Profile" component={Profile}></Route>
-
+                <Route exact path="/UserDetail" component={UserDetail}></Route>
+                <Route exact path="/StudentDetail" component={StudentDetail}></Route>
             </Switch>
         </div>
     }

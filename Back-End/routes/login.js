@@ -10,7 +10,6 @@ router.post('/',async (req,res)=>{
         let found1=await User.findOne({password:req.body.password});
         if(found1)
         {
-           // console.log(found1._id);
             return res.send(found1);
         }
         else{
@@ -22,7 +21,6 @@ router.post('/',async (req,res)=>{
     }
 });
 router.post('/profile',async (req,res)=>{
-    console.log(req.body.username);
     let found = await User.findOne({name:req.body.username});
     
     res.set('Content-Type',"application/json");
@@ -36,7 +34,6 @@ router.post('/profile',async (req,res)=>{
 });
 router.put("/",async(req,res)=>{
     let found = await User.findOne({name:req.body.username});
-    console.log(found);
     User.updateOne({"_id":found._id},{$set:req.body})
     .then(()=>res.send('upate'))
     .catch(()=>{ return res.status(400).send('data updated');})

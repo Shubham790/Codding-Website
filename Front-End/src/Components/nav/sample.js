@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./sample.css";
 import { Button } from 'react-bootstrap'
 import Navbar from "./navbar";
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import Footer from './footer';
 export default class Sample extends Component {
@@ -28,15 +28,15 @@ export default class Sample extends Component {
             {this.state.que.map((a) =>
                 <div class="card" style={{ marginLeft: "35px" }}>
                     <div class="container">
-                        <a href={`/sample1/${a.questionname}`} params={{question:a.questionname}}>
+                        <a href={`/sample1/${a.questionname}`} params={{ question: a.questionname }}>
                             <h4>{a.questionname}</h4>
                         </a>
                         <div class="card-details pmT" style={{ float: "left" }}>
                             <span style={{ color: "blue" }}>{a.type},Solved Percentage-{a.per}</span>
                         </div>
                         <div style={{ float: "left", marginLeft: "700px", marginTop: "-40px", innerWidth: "100px" }}>
-                           <Link to={`/sample1/${a.questionname}`} params={{question:a.questionname}}> <Button style={{ padding: "5px 60px" }} variant="outline-primary" size="lg">Solve</Button>
-                           </Link>
+                            <Link to={`/sample1/${a.questionname}`} params={{ question: a.questionname }}> <Button style={{ padding: "5px 60px" }} variant="outline-primary" size="lg">Solve</Button>
+                            </Link>
                         </div>
                     </div>
                 </div>

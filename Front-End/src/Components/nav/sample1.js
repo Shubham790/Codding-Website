@@ -8,31 +8,31 @@ import Footer from './footer';
 export default class Sample1 extends Component {
     constructor() {
         super();
-        this.state={
-            key:"",
-            question:""
+        this.state = {
+            key: "",
+            question: ""
         }
-        
+
     }
     componentDidMount() {
-        var key=this.props.match.params.varable1;
+        var key = this.props.match.params.varable1;
         console.log(key);
-       this.setState({question:key});
-        Axios.post("http://localhost:5000/sample/search",{key:key})
-        .then(response=>{
+        this.setState({ question: key });
+        Axios.post("http://localhost:5000/sample/search", { key: key })
+            .then(response => {
                 console.log(response.data.image);
-                this.setState({key:response.data.image});
-        })
-        .catch(error=>{
-        })
+                this.setState({ key: response.data.image });
+            })
+            .catch(error => {
+            })
     }
     render() {
         return <>
             <Navbar></Navbar>
-           <img src={this.state.key}></img>
-           <Compiler questionname={this.state.question}></Compiler>
-           <br></br><br></br>
-           <Footer></Footer>
+            <img src={this.state.key}></img>
+            <Compiler questionname={this.state.question}></Compiler>
+            <br></br><br></br>
+            <Footer></Footer>
         </>
     }
 }

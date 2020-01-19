@@ -41,9 +41,8 @@ class Login extends Component {
         }
         axios.post('http://localhost:5000/login', users)
             .then((res) => {
-                // window.location="/j";
-                console.log(res);
-                sessionStorage.setItem("user", res.data.name);
+                console.log(res.data.name);
+                sessionStorage.setItem("username", res.data.name);
                 this.setState({ username: res.data.name });
                 const a = res.data.isUser;
                 const b = res.data.isAdmin;
@@ -63,7 +62,7 @@ class Login extends Component {
     }
     render() {
         if (this.state.l) {
-            return <Redirect to={`/user/${this.state.username}`} params={{ username: this.state.username }} />
+            return <Redirect to="/user"/>
         }
         return <div className="container-fluid background">
             <div className="row">

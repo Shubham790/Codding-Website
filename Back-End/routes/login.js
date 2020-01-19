@@ -10,7 +10,7 @@ router.post('/',async (req,res)=>{
         let found1=await User.findOne({password:req.body.password});
         if(found1)
         {
-            return res.send(found1);
+            return res.send(found);
         }
         else{
            return res.status(401).send("password doesnot match");//("password does not match");

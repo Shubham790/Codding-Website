@@ -22,7 +22,7 @@ export default class User extends Component {
       return <Redirect to="/"></Redirect>
     }
     return <div >
-      <Nav username={this.props.match.params.user1} />
+      <Nav/>
       <div className="Dashboard1"><h2><b>Dashboard</b></h2></div>
       <div className="use1">
         <div class="card11" >

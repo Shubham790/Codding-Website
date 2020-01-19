@@ -17,7 +17,7 @@ export default class Profile extends Component {
     }
     componentDidMount() {
         setTimeout(() => {
-            Axios.post('http://localhost:5000/login/profile', { username: this.props.match.params.user1 })
+            Axios.post('http://localhost:5000/login/profile', { username: sessionStorage.getItem("username") })
                 .then((res) => {
                     console.log(res);
                     this.setState({ data: res.data })
@@ -38,7 +38,7 @@ export default class Profile extends Component {
         var branch = e.target.branch.value;
         var address = e.target.address.value;
 
-        Axios.put('http://localhost:5000/login', { username: this.props.match.params.user1, password, mobile, institute, cgpa, yearofcomplete, degree, branch, address })
+        Axios.put('http://localhost:5000/login', { username: sessionStorage.getItem("username"), password, mobile, institute, cgpa, yearofcomplete, degree, branch, address })
             .then((res) => {
                 alert('Data Updated successfully');
                 this.setState({});
@@ -59,7 +59,7 @@ export default class Profile extends Component {
                             <img src={ima} alt="Avatar" class="profileavatar" />
                         </div>
                         <center><h1 className="profileform">User Deatails.</h1></center>
-                        <center><h3><b><u>{this.props.match.params.user1}</u></b></h3></center>
+                        <center><h3><b><u>{sessionStorage.getItem("username")}</u></b></h3></center>
                         <div class="profilecontainer">
                             <table className="table table-bordered">
                                 <tr>

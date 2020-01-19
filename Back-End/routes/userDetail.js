@@ -11,4 +11,12 @@ router.post('/',async (req,res)=>{
     })
 }
 );
+router.delete('/deleteuser',async (req,res)=>{
+ res.set('Content-Type',"application/json");
+console.log(req.body.sss);
+    User.deleteOne({_id:req.body.sss})
+    .then(res1=>res.send(res1))
+    .catch(res1=>res.status(401).send("unauthored"));
+
+})
 module.exports=router;

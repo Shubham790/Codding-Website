@@ -20,6 +20,19 @@ export default class StudentDetail extends Component
         .catch((res)=>{
                 console.log('unauthorised');
         })
+        this.change=this.change.bind(this);
+    }
+    change(a){
+    a.preventDefault();
+    console.log(a.target.del.value);
+    Axios.delete('http://localhost:5000/userDetail/deleteuser',{data:{sss:a.target.del.value}})
+    .then(res=>{
+       alert('user deleted');
+       window.location="/StudentDetail";
+    })
+    .catch(res=>{
+    console.log('user not deleted');
+    })
     }
     render()
     {
@@ -34,7 +47,9 @@ export default class StudentDetail extends Component
                                 </tr>
                                 {
                                    this.state.dat.map(a=>{
-                                      return <tr><td>{a.name}</td><td>{a.email}</td><td><button>Delete</button></td></tr>
+                                      return <tr><td>{a.name}</td><td>{a.email}</td><td><form onSubmit={this.change}>
+                                      <input type="submit" name="del" value={a._id}/>
+                                      </form></td></tr>
                                    })
                                 }
                             </table>

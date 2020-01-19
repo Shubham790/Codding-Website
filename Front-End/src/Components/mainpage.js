@@ -14,6 +14,8 @@ import Logout from './User/logout';
 import Profile from './User/profile';
 import UserDetail from "./User/UserDetail";
 import StudentDetail from "./User/StudentDetail";
+import Question from './User/Question';
+import QuestionSolve from './User/QuestionSolve'
 export default class MainPage extends Component {
     render() {
         return <div>
@@ -32,6 +34,8 @@ export default class MainPage extends Component {
                 <Route exact path="/Profile" component={Profile}></Route>
                 <Route exact path="/UserDetail" component={UserDetail}></Route>
                 <Route exact path="/StudentDetail" component={StudentDetail}></Route>
+                <Route exact path="/Question" component={Question}></Route>
+                <Route exact path="/QuestionSolve/:varable1" component={QuestionSolve}></Route>
             </Switch>
         </div>
     }

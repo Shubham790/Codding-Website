@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
-import a from './a.jpg'
-import b from "./b.jpg";
+import a from '../nav/a.jpg'
+import b from "../nav/b.jpg";
 import Axios from "axios";
 import "./compiler.css";
 var key=true;

@@ -16,6 +16,14 @@ router.post('/',async (req,res)=>{
     newSample.save().then(()=>res.json('Question Name added!'))
     .catch(err=>res.status(400).json('Error: '+ err)); 
 });
+router.delete('/deletequestion',async (req,res)=>{
+
+    res.set('Content-Type',"application/json");
+    Sample.deleteOne({questionname:req.body.sss})
+    .then(res1=>res.send(res1))
+    .catch(res1=>res.status(401).send("unauthored"));
+
+})
 router.post('/search',async (req,res)=>{
     res.set('Content-Type',"application/json");
      var a=req.body.key;

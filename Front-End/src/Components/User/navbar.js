@@ -32,9 +32,6 @@ export default class Navbar extends Component
             <li className="nav-item">
                <Link className="nav-link" to="/Tests">Tests</Link>
             </li>
-            <li className="nav-item">
-               <Link className="nav-link" to="/mcq">Change Password</Link>
-            </li>
           </ul>
           {this.props.username}
             <Link className="btn btn-outline-danger my-2 my-sm-2" to="/logout" >Logout</Link>

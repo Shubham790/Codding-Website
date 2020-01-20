@@ -26,21 +26,13 @@ const test=require("./routes/test")
 const userDetail=require("./routes/userDetail")
 // app.use('/',express.static('public/build'));
 function verifyToken(req, res, next) {
-    // Get auth header value
-    console.log(req.body);
     const bearerHeader = req.body.headers['authorization'];
-    // Check if bearer is undefined
     if(typeof bearerHeader !== 'undefined') {
-      // Split at the space
       const bearer = bearerHeader.split(' ');
-      // Get token from array
       const bearerToken = bearer[1];
-      // Set the token
       req.token = bearerToken;
-      // Next middleware
       next();
     } else {
-      // Forbidden
       res.sendStatus(403);
     }
   }

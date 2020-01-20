@@ -20,11 +20,9 @@ Router.post('/', async (req, res) => {
             var envData = { OS: "linux", cmd: "gcc" };
             compiler.compileCPPWithInput(envData, code, input, (data) => {
                 if (data.error) {
-                    console.log(data.error);
                     res.send(data.error);
                 }
                 else {
-                    console.log(data.output);
                     res.send(data.output);
                 }
             });
@@ -33,7 +31,6 @@ Router.post('/', async (req, res) => {
             var envData = { OS: "linux", cmd: "gcc" };
             compiler.compileCPP(envData, code, (data) => {
                 if (data.error) {
-                    console.log(data.error);
                     res.send(data.error);
                 }
                 else {
@@ -42,7 +39,6 @@ Router.post('/', async (req, res) => {
             });
         }
         else {
-    console.log('else');
             var i = 0;
             Run.find({ questionname: questionname }).then(exer => {
                 exer[0].test.map((input1) => {
@@ -52,13 +48,10 @@ Router.post('/', async (req, res) => {
                     var envData = { OS: "linux", cmd: "gcc" };
                     compiler.compileCPPWithInput(envData, code, input2, (data) => {
                         if (data.error) {
-                            console.log(data.error);
                             arr.push(false);
                         }
                         else {
-                            console.log(data.output);
                             if (data.output == exer[0].output[a]) {
-                                console.log('match');
                                 arr.push(true);
                             }
                             else{
@@ -73,7 +66,6 @@ Router.post('/', async (req, res) => {
 
             })
                 .catch((err) => {
-                    console.log(err);
                     res.sendstatus(err).json('Error: ' + err)
                 });
                 
@@ -85,11 +77,9 @@ Router.post('/', async (req, res) => {
             var envData = { OS: "linux", cmd: "g++" };
             compiler.compileCPPWithInput(envData, code, input, (data) => {
                 if (data.error) {
-                    console.log(data.error);
                     res.send(data.error);
                 }
                 else {
-                    console.log(data.output);
                     res.send(data.output);
                 }
             });
@@ -98,7 +88,6 @@ Router.post('/', async (req, res) => {
             var envData = { OS: "linux", cmd: "g++" };
             compiler.compileCPP(envData, code, (data) => {
                 if (data.error) {
-                    console.log(data.error);
                     res.send(data.error);
 
                 }
@@ -108,7 +97,6 @@ Router.post('/', async (req, res) => {
             });
         }
         else {
-    console.log('else');
             var i = 0;
             Run.find({ questionname: questionname }).then(exer => {
                 exer[0].test.map((input1) => {
@@ -118,14 +106,10 @@ Router.post('/', async (req, res) => {
                     var envData = { OS: "linux", cmd: "g++" };
                     compiler.compileCPPWithInput(envData, code, input2, (data) => {
                         if (data.error) {
-                            console.log(data.error);
                             arr.push(false);
                         }
                         else {
-                            console.log(data.output);
                             if (data.output == exer[0].output[a]) {
-
-                                console.log('match');
                                 arr.push(true);
                             }
                             else{
@@ -140,7 +124,6 @@ Router.post('/', async (req, res) => {
 
             })
                 .catch((err) => {
-                    console.log(err);
                     res.sendstatus(err).json('Error: ' + err)
                 });
                 
@@ -153,11 +136,9 @@ Router.post('/', async (req, res) => {
             var envData = { OS: "linux" };
             compiler.compileJavaWithInput(envData, code, input, (data) => {
                 if (data.error) {
-                    console.log(data.error);
                     res.send(data.error);
                 }
                 else {
-                    console.log(data.output);
                     res.send(data.output);
                 }
             });
@@ -166,17 +147,14 @@ Router.post('/', async (req, res) => {
             var envData = { OS: "linux" };
             compiler.compileJava(envData, code, (data) => {
                 if (data.error) {
-                    console.log(data.error);
                     res.send(data.error);
                 }
                 else {
-                console.log(data.output);
                     res.send(data.output);
                 }
             });
         }
         else {
-    console.log('else');
             var i = 0;
             Run.find({ questionname: questionname }).then(exer => {
             
@@ -187,13 +165,10 @@ Router.post('/', async (req, res) => {
                     var envData = { OS: "linux" };
                     compiler.compileJavaWithInput(envData, code, input2, (data) => {
                         if (data.error) {
-                            console.log(data.error);
                             arr.push(false);
                         }
                         else {
-                            console.log(data.output);
                             if (data.output == exer[0].output[a]) {
-                                console.log('match');
                                 arr.push(true);
                             }
                             else{
@@ -206,7 +181,6 @@ Router.post('/', async (req, res) => {
 
             })
                 .catch((err) => {
-                    console.log(err);
                     res.sendstatus(err).json('Error: ' + err)
                 });
                 
@@ -222,11 +196,9 @@ Router.post('/', async (req, res) => {
             var envData = { OS: "linux" };
             compiler.compilePythonWithInput(envData, code, input, (data) => {
                 if (data.error) {
-                    console.log(data.error);
                     res.send(data.error);
                 }
                 else {
-                    console.log(data.output);
                     res.send(data.output);
                 }
             });
@@ -235,17 +207,14 @@ Router.post('/', async (req, res) => {
             var envData = { OS: "linux" };
             compiler.compilePython(envData, code, (data) => {
                 if (data.error) {
-                    console.log(data.error);
                     res.send(data.error);
                 }
                 else {
-                console.log(data.output);
                     res.send(data.output);
                 }
             });
         }
         else {
-    console.log('else');
             var i = 0;
             Run.find({ questionname: questionname }).then(exer => {
             
@@ -256,13 +225,10 @@ Router.post('/', async (req, res) => {
                     var envData = { OS: "linux" };
                     compiler.compilePythonWithInput(envData, code, input2, (data) => {
                         if (data.error) {
-                            console.log(data.error);
                             arr.push(false);
                         }
                         else {
-                            console.log(data.output);
                             if (data.output == exer[0].output[a]) {
-                                console.log('match');
                                 arr.push(true);
                             }
                             else{
@@ -275,7 +241,6 @@ Router.post('/', async (req, res) => {
 
             })
                 .catch((err) => {
-                    console.log(err);
                     res.sendstatus(err).json('Error: ' + err)
                 });
                 

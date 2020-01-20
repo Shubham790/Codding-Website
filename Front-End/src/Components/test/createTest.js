@@ -57,18 +57,19 @@ export default class Test extends Component{
     add1(e){
     e.preventDefault();
     let a=[];
-    
+    let d=e.target.objective.value;
      a.push(e.target.option1.value);
      a.push(e.target.option2.value);
      a.push(e.target.option3.value);
      a.push(e.target.option4.value);
+     let dd=[...this.state.Objective];
+    dd.push(d);
      let c=[...this.state.Objinput];
      let b=e.target.answer.value;
      c.push(a);
-     console.log(c);
      let g=this.state.Objoutput;
      g.push(b);
-     this.setState({Objinput:c,Objoutput:g});
+     this.setState({Objective:dd,Objinput:c,Objoutput:g});
     }
     add2(e){
     e.preventDefault();
@@ -90,11 +91,11 @@ export default class Test extends Component{
      d.push(a);
      f.push(b);
     this.setState({Coding:c,Codinput:d,Codoutput:f});
-    console.log('function2');
     }
     submit(e){
     e.preventDefault();
     let vb=this.state;
+    console.log(vb);
     const auth={authorization:'bearer '+sessionStorage.getItem("token1")}
     Axios.post("http://localhost:5000/createTest",{headers:auth,vb})
         .then(response=>{
@@ -127,8 +128,14 @@ export default class Test extends Component{
         Get started by providing the initial details for your contest.
         </p><br></br>
          <span><b>Contest Name:</b></span><input type="text" name="name1" value={this.state.ContestName} onChange={this.name1}/><br/><br></br>
-         <span> <b>Start Time :</b></span><input type="date" value={this.state.StartDay} onChange={this.ti}/>&nbsp;&nbsp;&nbsp;<span><b>At</b>&nbsp;&nbsp;&nbsp;</span><input type="time" name="start" value={this.state.StartTime} onChange={this.start1}/>&nbsp;&nbsp;&nbsp;<span><b>IST?</b></span><br/><br></br>
-         <span><b>End Time :</b></span><input type="date" value={this.state.EndDay} onChange={this.tj}/>&nbsp;&nbsp;&nbsp;<span><b>At</b>&nbsp;&nbsp;&nbsp;</span><input type="time" name="end" value={this.state.EndTime} onChange={this.end1}/> &nbsp;&nbsp;&nbsp;<span><b>IST?</b></span><br/><br></br>
+         <span> <b>Start Time :</b></span><input type="date" value={this.state.StartDay} onChange={this.ti}/>
+         
+         &nbsp;&nbsp;&nbsp;<span><b>At</b>&nbsp;&nbsp;&nbsp;
+         </span><input type="time" name="start" value={this.state.StartTime} onChange={this.start1}/>&nbsp;&nbsp;&nbsp;<span><b>IST?</b></span><br/><br></br>
+         <span><b>End Time :</b></span><input type="date" value={this.state.EndDay} onChange={this.tj}/>
+         &nbsp;&nbsp;&nbsp;<span><b>At</b>&nbsp;&nbsp;&nbsp;</span>
+         <input type="time" name="end" value={this.state.EndTime} onChange={this.end1}/> 
+         &nbsp;&nbsp;&nbsp;<span><b>IST?</b></span><br/><br></br>
          <button onClick={this.onNext}>Next</button><br></br><br></br>
          </div>
         { this.state.Nex=="true"?<div style={{marginLeft:"40px"}}>

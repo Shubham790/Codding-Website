@@ -23,11 +23,9 @@ export default class Sample1 extends Component {
     }
     componentDidMount() {
         var key = this.props.match.params.varable1;
-        console.log(key);
         this.setState({ question: key });
         Axios.post("http://localhost:5000/sample/search", { key: key })
             .then(response => {
-                console.log(response.data.image);
                 this.setState({ key: response.data.image });
             })
             .catch(error => {

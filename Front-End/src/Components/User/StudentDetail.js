@@ -31,13 +31,13 @@ export default class StudentDetail extends Component
     }
     change(a){
         const auth={authorization:'bearer '+sessionStorage.getItem("token1")}
-    Axios.delete('http://localhost:5000/userDetail/deleteuser',{headers:auth,data:{sss:a}})
+    Axios.post('http://localhost:5000/userDetail/deleteuser',{headers:auth,sss:a})
     .then(res=>{
        alert('user deleted');
        window.location="/StudentDetail";
     })
     .catch(res=>{
-    console.log('user not deleted');
+    alert('user not deleted');
     })
     }
     render()

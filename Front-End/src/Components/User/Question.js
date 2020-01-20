@@ -22,7 +22,7 @@ export default class Sample extends Component {
             .then(res => {
                 this.setState({ que: res.data })
             })
-            .catch(error => console.log(error))
+            .catch(error => { alert('please try again later')})
        this.change=this.change.bind(this);
     }
     componentDidMount() {
@@ -35,7 +35,7 @@ export default class Sample extends Component {
        window.location="/Question";
     })
     .catch(res=>{
-    console.log('user not deleted');
+    alert('user not deleted');
     })
     }
     render() {

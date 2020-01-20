@@ -41,7 +41,6 @@ export default class Compiler extends Component
     else{
       var fals=0;
       arr=[...res.data];
-      console.log(arr[0]);
       if(arr[0])
       {
          fals++;

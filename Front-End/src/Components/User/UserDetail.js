@@ -24,10 +24,9 @@ export default class StudentDetail extends Component
         Axios.post("http://localhost:5000/userDetail",{headers:auth},"ss")
         .then((res)=>{
                this.setState({dat:res.data});
-               console.log(this.state.dat);
         })
         .catch((res)=>{
-                console.log('unauthorised');
+                alert('unauthorised');
         })
         this.change=this.change.bind(this);
         this.change1=this.change1.bind(this);
@@ -41,7 +40,7 @@ export default class StudentDetail extends Component
       window.location="/UserDetail"
     })
     .catch(res=>{
-    console.log('user not deleted');
+    alert('user not deleted');
     })
     }
     change1(a){
@@ -51,7 +50,7 @@ export default class StudentDetail extends Component
            alert('admin added');
         })
         .catch(res=>{
-        console.log('admin not added');
+        alert('admin not added');
         })
         }
         change2(a){
@@ -61,7 +60,7 @@ export default class StudentDetail extends Component
                alert('admin deleted');
             })
             .catch(res=>{
-            console.log('admin not deleted');
+            alert('admin not deleted');
             })
             }
     render()

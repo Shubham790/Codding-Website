@@ -2,15 +2,22 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Question.css";
 import Navbar from "./navbar";
+import { Redirect, Link } from 'react-router-dom';
 import Compiler from "./compiler";
 import Axios from 'axios';
 import Footer from '../nav/footer';
 export default class Sample1 extends Component {
     constructor() {
         super();
+        const token = sessionStorage.getItem("token");
+    let l = true
+    if (token == null) {
+      l = false
+    }
         this.state = {
             key: "",
-            question: ""
+            question: "",
+            l
         }
 
     }
@@ -27,6 +34,9 @@ export default class Sample1 extends Component {
             })
     }
     render() {
+        if (this.state.l === false) {
+            return <Redirect to="/"></Redirect>
+          }
         return <>
             <Navbar></Navbar>
             <img src={this.state.key}></img>

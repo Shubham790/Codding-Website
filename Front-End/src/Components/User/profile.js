@@ -9,23 +9,29 @@ import ima from "../User/img_avatar2.png"
 export default class Profile extends Component {
     constructor() {
         super();
+        const token = sessionStorage.getItem("token");
+    let l = true
+    if (token == null) {
+      l = false
+    }
         this.state = {
             data: '',
-            username: ''
+            username: '',
+            l
         }
         this.submit1 = this.submit1.bind(this);
     }
     componentDidMount() {
         setTimeout(() => {
-            Axios.post('http://localhost:5000/login/profile', { username: sessionStorage.getItem("username") })
+            const auth={authorization:'bearer '+sessionStorage.getItem("token1")}
+            Axios.post('http://localhost:5000/login/profile',{headers:auth}, { username: sessionStorage.getItem("username") })
                 .then((res) => {
-                    console.log(res);
-                    this.setState({ data: res.data })
+                    this.setState({ data:res.data.authData.user })
                 })
                 .catch(res => {
-                    //alert('error');
+                    alert('error while fetching');
                 })
-        }, 100)
+        }, 1000)
     }
     submit1(e) {
         e.preventDefault();
@@ -37,8 +43,8 @@ export default class Profile extends Component {
         var degree = e.target.degree.value;
         var branch = e.target.branch.value;
         var address = e.target.address.value;
-
-        Axios.put('http://localhost:5000/login', { username: sessionStorage.getItem("username"), password, mobile, institute, cgpa, yearofcomplete, degree, branch, address })
+        const auth={authorization:'bearer '+sessionStorage.getItem("token1")}
+        Axios.put('http://localhost:5000/login',{headers:auth, username: sessionStorage.getItem("username"), password, mobile, institute, cgpa, yearofcomplete, degree, branch, address })
             .then((res) => {
                 alert('Data Updated successfully');
                 this.setState({});
@@ -48,7 +54,9 @@ export default class Profile extends Component {
             })
     }
     render() {
-        //this.setState({username:this.props.match.params.user1}) ;
+        if (this.state.l === false) {
+            return <Redirect to="/"></Redirect>
+          }
         return <>
             <Nav></Nav>
             <div class="wholeform">

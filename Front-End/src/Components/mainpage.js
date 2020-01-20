@@ -37,7 +37,6 @@ export default class MainPage extends Component {
                 <Route exact path="/StudentDetail" component={StudentDetail}></Route>
                 <Route exact path="/Question" component={Question}></Route>
                 <Route exact path="/QuestionSolve/:varable1" component={QuestionSolve}></Route>
-
                 <Route exact path="/createTest" component={createTest}></Route>
             </Switch>
         </div>

@@ -12,10 +12,16 @@ export default class StudentDetail extends Component
     {
         super();
         b=0;
+        const token = sessionStorage.getItem("token");
+    let l = true
+    if (token == null) {
+      l = false
+    }
         this.state={
-            dat:[],
+            dat:[],l
         }
-        Axios.post("http://localhost:5000/userDetail","ss")
+        const auth={authorization:'bearer '+sessionStorage.getItem("token1")}
+        Axios.post("http://localhost:5000/userDetail",{headers:auth},"ss")
         .then((res)=>{
                this.setState({dat:res.data});
                console.log(this.state.dat);
@@ -28,7 +34,8 @@ export default class StudentDetail extends Component
         this.change2=this.change2.bind(this);
     }
     change(a){
-    Axios.delete('http://localhost:5000/userDetail/deleteuser',{data:{sss:a}})
+        const auth={authorization:'bearer '+sessionStorage.getItem("token1")}
+    Axios.post('http://localhost:5000/userDetail/deleteuser',{headers:auth,sss:a})
     .then(res=>{
        alert('user deleted');
       window.location="/UserDetail"
@@ -38,7 +45,8 @@ export default class StudentDetail extends Component
     })
     }
     change1(a){
-        Axios.post('http://localhost:5000/userDetail/admin',{sss:a})
+        const auth={authorization:'bearer '+sessionStorage.getItem("token1")}
+        Axios.post('http://localhost:5000/userDetail/admin',{headers:auth,sss:a})
         .then(res=>{
            alert('admin added');
         })
@@ -47,7 +55,8 @@ export default class StudentDetail extends Component
         })
         }
         change2(a){
-            Axios.post('http://localhost:5000/userDetail/radmin',{sss:a})
+            const auth={authorization:'bearer '+sessionStorage.getItem("token1")}
+            Axios.post('http://localhost:5000/userDetail/radmin',{headers:auth,sss:a})
             .then(res=>{
                alert('admin deleted');
             })
@@ -57,6 +66,9 @@ export default class StudentDetail extends Component
             }
     render()
     {
+        if (this.state.l === false) {
+            return <Redirect to="/"></Redirect>
+          }
         return <>
         <Nav></Nav>
          <center><h1>User Details</h1></center>

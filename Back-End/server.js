@@ -1,5 +1,6 @@
 const express=require('express');
 const cors=require('cors');
+const jwt=require('jsonwebtoken');
 const mongoose=require('mongoose');
 require('dotenv').config();
 const app=express();
@@ -23,13 +24,43 @@ const Compiler=require('./routes/sample1');
 const forgot=require('./routes/forgot');
 const test=require("./routes/test")
 const userDetail=require("./routes/userDetail")
-app.use('/',express.static('public/build'));
-app.use('/signup',signupRouter);
-app.use('/login',loginRouter);
+// app.use('/',express.static('public/build'));
+function verifyToken(req, res, next) {
+    // Get auth header value
+    console.log(req.body);
+    const bearerHeader = req.body.headers['authorization'];
+    // Check if bearer is undefined
+    if(typeof bearerHeader !== 'undefined') {
+      // Split at the space
+      const bearer = bearerHeader.split(' ');
+      // Get token from array
+      const bearerToken = bearer[1];
+      // Set the token
+      req.token = bearerToken;
+      // Next middleware
+      next();
+    } else {
+      // Forbidden
+      res.sendStatus(403);
+    }
+  }
 app.use('/Feedback',FeedbackRouter);
 app.use('/sample',sampleRouter);
 app.use('/Compiler',Compiler);
 app.use('/mcq',McqRouter);
+app.use('/signup',signupRouter);
 app.use('/forgot',forgot);
+app.use('/login',loginRouter);
+app.use("*",verifyToken,(req,res,next)=>
+{
+jwt.verify(req.token, 's', (err, authData) => {
+    if(err) {
+      res.sendStatus(403);
+    } 
+    else {
+     next()
+      };
+    });
+})
 app.use("/createTest",test);
 app.use("/userDetail",userDetail);

@@ -9,7 +9,6 @@ export default class User extends Component {
     super(props);
     const token = sessionStorage.getItem("token");
     let l = true
-    console.log(this.props.context);
     if (token == null) {
       l = false
     }

@@ -6,11 +6,17 @@ import Navbar from "./navbar";
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import Footer from '../nav/footer';
+import { Redirect} from 'react-router-dom';
 export default class Sample extends Component {
     constructor() {
         super();
+        const token = sessionStorage.getItem("token");
+    let l = true
+    if (token == null) {
+      l = false
+    }
         this.state = {
-            que: []
+            que: [],l
         }
         Axios.get('http://localhost:5000/sample')
             .then(res => {
@@ -33,6 +39,9 @@ export default class Sample extends Component {
     })
     }
     render() {
+        if (this.state.l === false) {
+            return <Redirect to="/"></Redirect>
+          }
         return <>
             <Navbar></Navbar>
             <br></br>

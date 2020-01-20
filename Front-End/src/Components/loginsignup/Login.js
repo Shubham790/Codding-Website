@@ -41,21 +41,22 @@ class Login extends Component {
         }
         axios.post('http://localhost:5000/login', users)
             .then((res) => {
-                console.log(res.data.name);
-                sessionStorage.setItem("username", res.data.name);
-                this.setState({ username: res.data.name });
-                const a = res.data.isUser;
-                const b = res.data.isAdmin;
-                const c = res.data.isSuperAdmin;
-                sessionStorage.setItem("isUser", a);
-                sessionStorage.setItem("isAdmin", b);
-                sessionStorage.setItem("isSuperAdmin", c);
-                sessionStorage.setItem("token", "ehflhdf");
-                //    sessionStorage.setItem("username",)
-                this.setState({
-                    l: true
+                    console.log(res.data);
+                    sessionStorage.setItem("token1", res.data.token);
+                    sessionStorage.setItem("username", res.data.found.name);
+                    this.setState({ username: res.data.found.name });
+                    const a = res.data.found.isUser;
+                    const b = res.data.found.isAdmin;
+                    const c = res.data.found.isSuperAdmin;
+                    sessionStorage.setItem("isUser", a);
+                    sessionStorage.setItem("isAdmin", b);
+                    sessionStorage.setItem("isSuperAdmin", c);
+                    sessionStorage.setItem("token", "ehflhdf");
+                    //    sessionStorage.setItem("username",)
+                    this.setState({
+                        l: true
+                    })            
                 })
-            })
             .catch((error) => {
                 alert(error.response.data);
             })

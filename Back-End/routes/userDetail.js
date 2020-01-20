@@ -11,7 +11,7 @@ router.post('/',async (req,res)=>{
     })
 }
 );
-router.delete('/deleteuser',async (req,res)=>{
+router.post('/deleteuser',async (req,res)=>{
  res.set('Content-Type',"application/json");
     User.deleteOne({_id:req.body.sss})
     .then(res1=>res.send(res1))

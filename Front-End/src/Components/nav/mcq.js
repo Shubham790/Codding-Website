@@ -23,13 +23,15 @@ export default class Mcq extends Component {
     }
     change1() {
         var arr1 = [], arr = [], count = 0;
+        // eslint-disable-next-line
         this.state.que.map((a) => {
             var c = document.getElementById(a.questionname).value;
             arr1.push(a.output);
             arr.push(c);
-            if (c == a.output)
+            if (c === a.output)
                 count++;
         })
+        // eslint-disable-next-line
         alert('Your answers is saved Scessfully\n Your result is : ' + count + ' /' + arr.length + '\n' + "Your Output : " + arr + '\n' + "correct output : " + arr1);
     }
     render() {
@@ -39,13 +41,11 @@ export default class Mcq extends Component {
             <center style={{ color: "blue" }}><u><h4>Solve The Following Mcqs</h4></u></center>
             <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constraints <br></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For option a type a without any extra spaces befor and after any option you write in input box.</h6>
             {this.state.que.map((a) =>
-                <div class="card" style={{ marginLeft: "35px" }}>
-                    <div class="container">
-                        <a href="">
+                <div className="card" style={{ marginLeft: "35px" }}>
+                    <div className="container">
                             <h4>{a.questionname}</h4>
-                        </a>
-                        <img src={a.image}></img><br></br>
-                        <div class="card-details pmT" style={{ float: "left" }}>
+                        <img src={a.image} alt="mcq"></img><br></br>
+                        <div className="card-details pmT" style={{ float: "left" }}>
                             <br></br>
                             &nbsp;&nbsp;<b>Write Your Answer Here-></b><input id={a.questionname}></input>
                         </div>
@@ -53,8 +53,8 @@ export default class Mcq extends Component {
                 </div>
             )}
             <br></br>
-            <div class="card" style={{ marginLeft: "35px", background: "#007bff" }} onClick={this.change1} >
-                <div class="container" >
+            <div className="card" style={{ marginLeft: "35px", background: "#007bff" }} onClick={this.change1} >
+                <div className="container" >
                     <span> <b> <center ><h5>Submit</h5></center></b></span>
                 </div>
             </div>

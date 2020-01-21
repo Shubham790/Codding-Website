@@ -46,12 +46,12 @@ export default class question extends Component {
             <Navbar></Navbar>
             <br></br>
             {this.state.que.map((a) =>
-                <div class="card" style={{ marginLeft: "35px" }}>
-                    <div class="container">
+                <div className="card" style={{ marginLeft: "35px" }}>
+                    <div className="container">
                         <a href={`/QestionSolve/${a.questionname}`} params={{ question: a.questionname }}>
                             <h4>{a.questionname}</h4>
                         </a>
-                        <div class="card-details pmT" style={{ float: "left" }}>
+                        <div className="card-details pmT" style={{ float: "left" }}>
                             <span style={{ color: "blue" }}>{a.type},Solved Percentage-{a.per}</span>
                         </div>
                         <div style={{ float: "left", marginLeft: "700px", marginTop: "-40px", innerWidth: "100px" }}>

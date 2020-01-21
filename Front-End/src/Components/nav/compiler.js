@@ -4,6 +4,12 @@ import a from './a.jpg'
 import b from "./b.jpg";
 import Axios from "axios";
 import "./compiler.css";
+import AceEditor from "react-ace";
+import "ace-builds/src-noconflict/mode-java";
+import "ace-builds/src-noconflict/theme-github";
+function onChange(newValue) {
+  console.log("change", newValue);
+}
 var key=true;
 var arr=[];
 function change()
@@ -19,21 +25,45 @@ export default class Compiler extends Component
   constructor()
   {
     super();
-    /*document.getElementById('code1776').innerHTML="#include<stdio.h>\nint main(){\nprintf(\"hello world\");\nreturn 0;\n}";*/
+    this.instance = null;
+    this.state={
+    backgroundColor:'white',
+    color:'black',
+    fontSize:'18px',
+    orientation:'beside',
+    value:"#include<stdio.h>\nint main(){\nprintf(\"hello world\");\nreturn 0;\n}",
+    border: "solid",
+    height:"500px",
+    width:"1000px",
+    theme:'black',
+    paddingLeft:"50px",
+    wrapEnabled:false,
+    enableBasicAutocompletio:false,
+    enableLiveAutocompletion:false,
+    highlightActiveLine: "false",
+    highlightSelectedWord: false
+    }
     this.handleSubmit=this.handleSubmit.bind(this);
     this.color=this.color.bind(this);
+    this.change=this.change.bind(this);
     this.sample=this.sample.bind(this);
   }
+  change(e){
+  this.setState({value:e});
+  }
   sample(){
-    document.getElementById('code1776').innerHTML=document.getElementById('sampleee').value=='C'?"#include<stdio.h>\nint main(){\nprintf(\"hello world\");\nreturn 0;\n}":document.getElementById('sampleee').value=='C++'?"#include<iostream>\nusing namespace std;\nint main(){\ncout<<\"hello world\";\nreturn 0;\n}":document.getElementById('sampleee').value=='Java'?"import java.util.*;\nclass Main{\npublic static void main(System.in){\nSystem.out.println('hello world');\n}":"print('hello')";
+  let c=document.getElementById('sampleee').value=='C'?"#include<stdio.h>\nint main(){\nprintf(\"hello world\");\nreturn 0;\n}":document.getElementById('sampleee').value=='C++'?"#include<iostream>\nusing namespace std;\nint main(){\ncout<<\"hello world\";\nreturn 0;\n}":document.getElementById('sampleee').value=='Java'?"import java.util.*;\nclass Main{\npublic static void main(System.in){\nSystem.out.println('hello world');\n}":"print('hello')";
+    this.setState({value:c});
   }
   color(){
-     document.getElementById('code1776').style.backgroundColor=document.getElementById('color').value;
-    document.getElementById('code1776').style.color=document.getElementById('color').value=="black"?"white" :"black";
+     this.setState({backgroundColor:document.getElementById('color').value});
+     let c=document.getElementById('color').value=="black"?"white" :"black";
+    this.setState({color:c});
+    console.log(this.state);
   }
   handleSubmit(e){
     e.preventDefault();
-    Axios.post('http://localhost:5000/Compiler',{type:key,questionname:this.props.questionname,code:e.target.code.value,input:e.target.input.value,lang:e.target.lang.value,inputRadio:e.target.inputRadio.value})
+    Axios.post('http://localhost:5000/Compiler',{type:key,questionname:this.props.questionname,code:this.state.value,input:e.target.input.value,lang:e.target.lang.value,inputRadio:e.target.inputRadio.value})
     .then((res) => {
     if(key){
         document.getElementById('output').innerHTML=res.data;
@@ -93,20 +123,37 @@ export default class Compiler extends Component
         <div className="col-md-4 col-sm-4 col-xs-12">
           <form id="myform" name="myform" onSubmit={this.handleSubmit}>
       <center><u><h3 style={{color:"blue"}}>Type Your Code Here</h3></u><br></br>
-        <h5 style={{color:"blue"}}>Language : <select name="lang" id="sampleee"onClick={this.sample}>
+        <h5 style={{color:"blue"}}>Language : <select name="lang" id="sampleee" onClick={this.sample}>
           <option value="C">C</option>
           <option value="C++">C++</option>
           <option value="Java">Java</option>  
           <option value="Python">Python</option>
-        </select>
+        </select>&nbsp;
         <select id="color" onClick={this.color}>
-          <option value="white">White</option>
-          <option value="black">Black</option>
-          <option value="cadetblue">Cadet Blue</option>  
-          <option value="darkgrey">Dark Grey</option>
-        </select></h5></center>
-        <textarea rows="13" cols="100" id="code1776" name="code" ></textarea> 
-        <br/>
+          <option value="white">white</option>
+          <option value="smoke">whitesmoke</option>
+          <option value="black">black</option>  
+          <option value="grey">grey</option>
+        </select>&nbsp;
+        <select id="font" onClick={()=>this.setState({fontSize:document.getElementById('font').value})} >
+        <option value="14px">14</option>
+        <option value="16px">16</option>
+        <option value="18px">18</option>
+        <option value="20px">20</option>
+        <option value="22px">22</option>
+        </select>
+        </h5>
+        </center>
+        
+        
+  <AceEditor id="code1776"  style={this.state} value={this.state.value} onChange={this.change}
+     mode="java"
+    theme="github"
+    name="UNIQUE_ID_OF_DIV"
+    editorProps={{ $blockScrolling: true }} enableBasicAutocompletion="true" enableLiveAutocompletion= "true" enableSnippets= "false" tabSize="4"
+  />
+ 
+      
        <u><h3 style={{color:"blue"}}>Input</h3></u>
         <textarea cols="20" rows="7" id="input1776" name="input"></textarea>&nbsp;&nbsp;&nbsp;&nbsp;
          <br/>

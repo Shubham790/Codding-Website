@@ -25,6 +25,7 @@ const Compiler=require('./routes/sample1');
 const forgot=require('./routes/forgot');
 const test=require("./routes/test")
 const userDetail=require("./routes/userDetail")
+const show=require("./routes/show");
 // app.use('/',express.static('public/build'));
 function verifyToken(req, res, next) {
     const bearerHeader = req.body.headers['authorization'];
@@ -58,3 +59,4 @@ jwt.verify(req.token, 's', (err, authData) => {
 })
 app.use("/createTest",test);
 app.use("/userDetail",userDetail);
+app.use("/show",show);

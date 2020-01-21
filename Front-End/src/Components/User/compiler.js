@@ -34,7 +34,7 @@ export default class Compiler extends Component
     value:"#include<stdio.h>\nint main(){\nprintf(\"hello world\");\nreturn 0;\n}",
     border: "solid",
     height:"500px",
-    width:"1000px",
+    width:"800px",
     theme:'black',
     paddingLeft:"50px",
     wrapEnabled:false,

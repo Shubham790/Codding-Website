@@ -5,12 +5,10 @@ import b from "./b.jpg";
 import Axios from "axios";
 import "./compiler.css";
 import AceEditor from "react-ace";
+
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/theme-github";
-function onChange(newValue) {
-  console.log("change", newValue);
-}
-var key=true;
+ var key=true;
 var arr=[];
 function change()
 {
@@ -34,8 +32,8 @@ export default class Compiler extends Component
     value:"#include<stdio.h>\nint main(){\nprintf(\"hello world\");\nreturn 0;\n}",
     border: "solid",
     height:"500px",
-    width:"1000px",
-    theme:'black',
+    width:"800px",
+    theme:'red',
     paddingLeft:"50px",
     wrapEnabled:false,
     enableBasicAutocompletio:false,
@@ -131,7 +129,7 @@ export default class Compiler extends Component
         </select>&nbsp;
         <select id="color" onClick={this.color}>
           <option value="white">white</option>
-          <option value="smoke">whitesmoke</option>
+          <option value="whitesmoke">whitesmoke</option>
           <option value="black">black</option>  
           <option value="grey">grey</option>
         </select>&nbsp;
@@ -141,6 +139,11 @@ export default class Compiler extends Component
         <option value="18px">18</option>
         <option value="20px">20</option>
         <option value="22px">22</option>
+        <option value="24px">24</option>
+        <option value="26px">26</option>
+        <option value="28px">28</option>
+        <option value="30px">30</option>
+        <option value="32px">32</option>
         </select>
         </h5>
         </center>

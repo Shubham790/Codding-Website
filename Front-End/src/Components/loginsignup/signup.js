@@ -72,6 +72,7 @@ class Signup extends Component {
                         <div className="checkbox">
                             <label className="label1"> <input type="checkbox" required /> Remember me</label>
                         </div>
+                          {/* eslint-disable-next-line */}
                         <button className="button1" type="submit" className="btn btn-success btn-block">Signup</button>
                         <Link to='Login'> <p className="p1">Already have an account Login ?</p></Link>
                     </form>

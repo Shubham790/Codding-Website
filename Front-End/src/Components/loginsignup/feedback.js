@@ -50,7 +50,7 @@ class Feedback extends Component {
                 <div className="col-md-4 col-sm-4 col-xs-12">
                     <form className="log" onSubmit={this.click}>
                         <h1 className="h1">Feedback</h1>
-                        <img id="img" src={ss} className='img-fluid custom' />
+                        <img id="img" src={ss} alt="Fedback Ing" className='img-fluid custom' />
                         <div className="form-group">
                             <b> <label >Email</label></b>
                             <input type="email" className="form-control" placeholder="Enter Your Email" value={this.state.email} onChange={this.onChangeEmail} required></input>

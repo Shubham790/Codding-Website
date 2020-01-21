@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./sample.css";
-import { Button } from 'react-bootstrap'
 import Navbar from "./navbar";
-import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import Footer from './footer';
 export default class Mcq extends Component {

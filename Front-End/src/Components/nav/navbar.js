@@ -6,7 +6,7 @@ import "./navbar.css"
 export default class Navbar extends Component {
   render() {
     return <div><nav className="navbar navbar-expand-lg navbar-dark bg-custom-2">
-    <img id="img" src={ss1} className='gg' />&nbsp;&nbsp;<Link to="/" style={{color:"black"}}><h5><u>SackerRank</u></h5></Link>&nbsp;&nbsp;&nbsp;&nbsp;
+    <img id="img" src={ss1} alt="logo" className='gg' />&nbsp;&nbsp;<Link to="/" style={{color:"black"}}><h5><u>SackerRank</u></h5></Link>&nbsp;&nbsp;&nbsp;&nbsp;
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>

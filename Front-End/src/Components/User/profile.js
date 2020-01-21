@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Nav from "./navbar"
 import Footer from "../nav/footer";

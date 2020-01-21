@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import Axios from "axios";
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "../nav/footer";
 import Nav from "../User/navbar";

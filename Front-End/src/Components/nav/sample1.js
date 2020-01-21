@@ -29,7 +29,7 @@ export default class Sample1 extends Component {
     render() {
         return <>
             <Navbar></Navbar>
-            <img src={this.state.key}></img>
+            <img src={this.state.key} alt="Question"></img>
             <Compiler questionname={this.state.question}></Compiler>
             <br></br><br></br>
             <Footer></Footer>

@@ -19,6 +19,7 @@ const signupRouter=require('./routes/signup');
 const loginRouter=require('./routes/login');
 const FeedbackRouter=require('./routes/Feedback');
 const sampleRouter=require('./routes/sample');
+const questionRouter=require('./routes/question');
 const McqRouter=require('./routes/mcq');
 const Compiler=require('./routes/sample1');
 const forgot=require('./routes/forgot');
@@ -38,6 +39,7 @@ function verifyToken(req, res, next) {
   }
 app.use('/Feedback',FeedbackRouter);
 app.use('/sample',sampleRouter);
+app.use('/question',questionRouter);
 app.use('/Compiler',Compiler);
 app.use('/mcq',McqRouter);
 app.use('/signup',signupRouter);

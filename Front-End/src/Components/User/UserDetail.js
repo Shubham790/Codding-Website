@@ -1,6 +1,5 @@
 import React,{Component} from "react";
 import Axios from "axios";
-import { render } from "react-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "../nav/footer";
 import Nav from "../User/navbar";
@@ -74,11 +73,17 @@ export default class StudentDetail extends Component
             <table class="table">
             <thead class="table-dark">
                                 <tr>
+                                {/* eslint-disable-next-line */}
                                     <td scope="col"><b>Sr.No</b></td>
+                                    {/* eslint-disable-next-line */}
                                     <td scope="col"><b>UserName</b></td>
+                                    {/* eslint-disable-next-line */}
                                     <td scope="col"><b>Email</b></td>
+                                    {/* eslint-disable-next-line */}
                                     <td scope="col"><b>Delete User</b></td>
+                                    {/* eslint-disable-next-line */}
                                     <td scope="col"><b>Add Admin</b></td>
+                                    {/* eslint-disable-next-line */}
                                     <td scope="col"><b>Remove Admin</b></td>
                                 </tr>
             </thead>

@@ -42,7 +42,8 @@ class Forgot extends Component {
                 <div className="col-md-4 col-sm-4 col-xs-12">
                     <form className="log" onSubmit={this.onSubmit}>
                         <h1 className="h1">Forgot Password</h1>
-                        <img id="img" src={ss} className='img-fluid custom' />
+                        {/* eslint-disable-next-line */}
+                        <img id="img" src={ss} alt="Signup Image" className='img-fluid custom' />
                         <div className="form-group">
                             <label className="label">Email</label>
                             <input type="email" className="form-control" placeholder="Enter Your Email" value={this.state.email} onChange={this.onChangeEmail} required></input>

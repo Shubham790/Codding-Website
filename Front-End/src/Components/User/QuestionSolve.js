@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Question.css";
 import Navbar from "./navbar";
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect} from 'react-router-dom';
 import Compiler from "./compiler";
 import Axios from 'axios';
 import Footer from '../nav/footer';
-export default class Sample1 extends Component {
+export default class QuestionSolve extends Component {
     constructor() {
         super();
         const token = sessionStorage.getItem("token");
@@ -24,7 +24,7 @@ export default class Sample1 extends Component {
     componentDidMount() {
         var key = this.props.match.params.varable1;
         this.setState({ question: key });
-        Axios.post("http://localhost:5000/sample/search", { key: key })
+        Axios.post("http://localhost:5000/question/search", { key: key })
             .then(response => {
                 this.setState({ key: response.data.image });
             })
@@ -37,7 +37,7 @@ export default class Sample1 extends Component {
           }
         return <>
             <Navbar></Navbar>
-            <img src={this.state.key}></img>
+            <img src={this.state.key} alt="Question Name"></img>
             <Compiler questionname={this.state.question}></Compiler>
             <br></br><br></br>
             <Footer></Footer>

@@ -3,7 +3,7 @@ import Axios from 'axios';
 import Footer from "../nav/footer";
 import Nav from "../User/navbar";
 import "../test/createtest.css"
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect} from 'react-router-dom';
 export default class Test extends Component{
     constructor(){
     super();

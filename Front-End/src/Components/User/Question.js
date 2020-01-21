@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import Footer from '../nav/footer';
 import { Redirect} from 'react-router-dom';
-export default class Sample extends Component {
+export default class question extends Component {
     constructor() {
         super();
         const token = sessionStorage.getItem("token");
@@ -18,7 +18,7 @@ export default class Sample extends Component {
         this.state = {
             que: [],l
         }
-        Axios.get('http://localhost:5000/sample')
+        Axios.get('http://localhost:5000/question')
             .then(res => {
                 this.setState({ que: res.data })
             })
@@ -29,14 +29,14 @@ export default class Sample extends Component {
 
     }
     change(a){
-    Axios.delete('http://localhost:5000/sample/deletequestion',{data:{sss:a}})
-    .then(res=>{
-       alert('Question deleted');
-       window.location="/Question";
-    })
-    .catch(res=>{
-    alert('user not deleted');
-    })
+    // Axios.delete('http://localhost:5000/sample/deletequestion',{data:{sss:a}})
+    // .then(res=>{
+    //    alert('Question deleted');
+    //    window.location="/Question";
+    // })
+    // .catch(res=>{
+    // alert('user not deleted');
+    // })
     }
     render() {
         if (this.state.l === false) {
@@ -48,7 +48,7 @@ export default class Sample extends Component {
             {this.state.que.map((a) =>
                 <div class="card" style={{ marginLeft: "35px" }}>
                     <div class="container">
-                        <a href={`/sample1/${a.questionname}`} params={{ question: a.questionname }}>
+                        <a href={`/QestionSolve/${a.questionname}`} params={{ question: a.questionname }}>
                             <h4>{a.questionname}</h4>
                         </a>
                         <div class="card-details pmT" style={{ float: "left" }}>
@@ -57,6 +57,7 @@ export default class Sample extends Component {
                         <div style={{ float: "left", marginLeft: "700px", marginTop: "-40px", innerWidth: "100px" }}>
                             <Link to={`/QuestionSolve/${a.questionname}`} params={{ question: a.questionname }}> <Button style={{ padding: "5px 60px" }} variant="outline-primary" size="lg">Solve</Button>
                             </Link><br/>
+                            {/* eslint-disable-next-line */}
                             {sessionStorage.getItem('isSuperAdmin')=='true'?<button onClick={()=>this.change(a.questionname)}style={{ padding: "5px 60px" }} variant="outline-primary" size="lg">Delete</button>:<span/>}
                         </div>
                     </div>

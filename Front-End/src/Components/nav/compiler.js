@@ -33,7 +33,7 @@ export default class Compiler extends Component
     border: "solid",
     height:"500px",
     width:"800px",
-    theme:'red',
+    theme:'black',
     paddingLeft:"50px",
     wrapEnabled:false,
     enableBasicAutocompletio:false,

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ss1 from './nav.gif';
+import ss1 from './nav.png';
 import { Link } from "react-router-dom"
 import "./navbar.css"
 export default class Navbar extends Component {

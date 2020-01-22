@@ -12,9 +12,15 @@ export default class Footer extends Component {
           <hr className="clearfix w-100 d-md-none pb-3" />
           <div className="col-md-6 mb-md-0 mb-3">
             <h5 className="text-uppercase font-weight-bold">Follow US</h5>
-            <p><a href="https://www.facebook.com/subham.goyal.37" target="_blank" style={{ color: "black" }}>Facebook</a>
-              <br></br><a href="https://twitter.com/login" target="_blank" style={{ color: "black" }}>Twitter</a><br></br>
-              <a href="https://www.instagram.com/shubhamgoyal790/" target="_blank" style={{ color: "black" }}>Instagram</a></p>
+            {/* // eslint-disable-next-line */}
+            <p>
+            {/* // eslint-disable-next-line */}
+            <a href="https://www.facebook.com/subham.goyal.37"  style={{ color: "black" }}>Facebook</a>
+              <br></br>
+              {/* // eslint-disable-next-line */}
+              <a href="https://twitter.com/login"  style={{ color: "black" }}>Twitter</a><br></br>
+              {/* // eslint-disable-next-line */}
+              <a href="https://www.instagram.com/shubhamgoyal790/"  style={{ color: "black" }}>Instagram</a></p>
           </div>
         </div>
       </div>

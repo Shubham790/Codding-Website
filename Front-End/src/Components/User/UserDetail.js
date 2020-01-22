@@ -70,8 +70,8 @@ export default class StudentDetail extends Component
         return <>
         <Nav></Nav>
          <center><h1>User Details</h1></center>
-            <table class="table">
-            <thead class="table-dark">
+            <table className="table">
+            <thead className="table-dark">
                                 <tr>
                                 {/* eslint-disable-next-line */}
                                     <td scope="col"><b>Sr.No</b></td>

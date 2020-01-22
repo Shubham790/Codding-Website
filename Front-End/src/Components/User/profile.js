@@ -59,16 +59,16 @@ export default class Profile extends Component {
           }
         return <>
             <Nav></Nav>
-            <div class="wholeform">
+            <div className="wholeform">
                 <div>
                     <h2><center>Profile</center></h2>
                     <form className="profileform" onSubmit={this.submit1}>
-                        <div class="profileimgcontainer">
-                            <img src={ima} alt="Avatar" class="profileavatar" />
+                        <div className="profileimgcontainer">
+                            <img src={ima} alt="Avatar" className="profileavatar" />
                         </div>
                         <center><h1 className="profileform">Details.</h1></center>
                         <center><h3><b><u>{sessionStorage.getItem("username")}</u></b></h3></center>
-                        <div class="profilecontainer">
+                        <div className="profilecontainer">
                             <table className="table table-bordered">
                                 <tr>
                                     <td><label className="profilestyle">Password</label><br></br><input type="password" name="password" value={this.state.data.password} ref={(input) => this.input = input}></input></td>
@@ -88,7 +88,7 @@ export default class Profile extends Component {
                                 </tr>
                             </table>
                         </div>
-                        <div class="profilecontainer" style={{ backgroundColor: "#f1f1f1" }}>
+                        <div className="profilecontainer" style={{ backgroundColor: "#f1f1f1" }}>
                             <center><input type="submit" value="Save Changes" className="cancelbtn"></input></center>
                         </div>
                     </form>

@@ -14,7 +14,7 @@ export default class Navbar extends Component {
   }
   render() {
     return <div><nav className="navbar navbar-expand-lg navbar-dark bg-custom-2">
-      <img id="img" src={ss1} className='gg' />&nbsp;&nbsp;<Link to="/user" style={{color:"black"}}><h5><u>SackerRank</u></h5></Link>&nbsp;&nbsp;&nbsp;&nbsp;
+      <img id="img" src={ss1} alt=" Logo" className='gg' />&nbsp;&nbsp;<Link to="/user" style={{color:"black"}}><h5><u>SackerRank</u></h5></Link>&nbsp;&nbsp;&nbsp;&nbsp;
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
@@ -28,13 +28,15 @@ export default class Navbar extends Component {
             <Link className="nav-link" to='/Profile'>Profile</Link>
           </li>
           <li className="nav-item">
-          {this.state.c=="true"?<span></span>:this.state.b=="true"?
+          {/* // eslint-disable-next-line */}
+          {this.state.c==="true"?<span></span>:this.state.b==="true"?
             <Link className="nav-link" to="/createTest">CreateTest</Link>:
              <Link className="nav-link" to="/test">Tests</Link>
             }
           </li>
           <li className="nav-item">
-          {this.state.c=="true"? <Link className="nav-link" to="/UserDetail">UserDetails</Link>:this.state.b=="true"?
+          {/* // eslint-disable-next-line */}
+          {this.state.c==="true"? <Link className="nav-link" to="/UserDetail">UserDetails</Link>:this.state.b==="true"?
             <Link className="nav-link" to="/StudentDetail">StudentDetail</Link>:
              <span></span>
             }

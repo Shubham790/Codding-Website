@@ -23,8 +23,13 @@ export default class User extends Component {
     .catch((err)=>{console.log(err)})
     this.state = {
       l,
-      test:[]
+      test:[],
+      passcode:''
     }
+    this.change=this.change.bind(this);
+  }
+  change(e){
+    this.setState({passcode:e.target.value});
   }
   render() {
     if (this.state.l === false) {
@@ -40,12 +45,14 @@ export default class User extends Component {
                             <span style={{ color: "blue" }}>Start time&nbsp;&nbsp;{a.startday}&nbsp;&nbsp;{a.starttime}&nbsp;&nbsp;&nbsp;&nbsp;End time&nbsp;&nbsp;{a.endday}&nbsp;{a.endtime} </span>
                         </div>
                         <div style={{ float: "left", marginLeft: "700px", marginTop: "-40px", innerWidth: "100px" }}>
-                            <Link to={`/QuestionSolve/${a.contestName}`} params={{ contestName: a.contestName }}> <Button style={{ padding: "5px 60px" }} variant="outline-primary" size="lg">Start</Button>
+                          Passcode:<input type="text" id="passcode" value={this.state.value} onChange={this.change}></input>
+                            <Link to={`/testSolve/${a.contestName}/${this.state.passcode}`} params={{ contestName: a.contestName,passcode:this.state.passcode }}> <Button style={{ padding: "5px 60px" }} variant="outline-primary" size="lg">Start</Button>
                             </Link><br/>
                         </div>
                     </div>
                 </div>
             )}
+            <Footer/>
     </div>
 
   }

@@ -18,6 +18,7 @@ import Question from './User/Question';
 import QuestionSolve from './User/QuestionSolve'
 import createTest from "./test/createTest";
 import showtest from "./User/showtest";
+import showquestion from "./User/showquestion"
 export default class MainPage extends Component {
     render() {
         return <div>
@@ -40,6 +41,7 @@ export default class MainPage extends Component {
                 <Route exact path="/QuestionSolve/:varable1" component={QuestionSolve}></Route>
                 <Route exact path="/createTest" component={createTest}></Route>
                 <Route exact path="/test" component={showtest}/>
+                <Route exact path="/testSolve/:contestName/:passcode" component={showquestion}/>
             </Switch>
         </div>
     }

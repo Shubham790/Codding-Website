@@ -24,42 +24,42 @@ export default class User extends Component {
       <Nav/>
       <div className="Dashboard1"><h2><b>Dashboard</b></h2></div>
       <div className="use1">
-        <div class="card11" >
-          <div class="card12"><p>&nbsp;&nbsp;Interview Preparation</p><img class="new-banner-svg" alt="New" src="https://hrcdn.net/fcore/assets/svgs/new-banner-341e41b06d.svg" /></div>
-          <div class="container123">
+        <div className="card11" >
+          <div className="card12"><p>&nbsp;&nbsp;Interview Preparation</p><img className="new-banner-svg" alt="New" src="https://hrcdn.net/fcore/assets/svgs/new-banner-341e41b06d.svg" /></div>
+          <div className="container123">
             <h4><b>Interview Preparation Kit</b></h4>
-            <Link to="/Question"><button class="button123 button3">Continue Practice</button></Link>
+            <Link to="/Question"><button className="button123 button3">Continue Practice</button></Link>
           </div>
         </div>
-        <div class="card11">
-          <div class="card12"><p>&nbsp;&nbsp;Problem Solving</p><img class="new-banner-svg" alt="New" src="https://hrcdn.net/fcore/assets/svgs/new-banner-341e41b06d.svg" /></div>
-          <div class="container123">
+        <div className="card11">
+          <div className="card12"><p>&nbsp;&nbsp;Problem Solving</p><img className="new-banner-svg" alt="New" src="https://hrcdn.net/fcore/assets/svgs/new-banner-341e41b06d.svg" /></div>
+          <div className="container123">
             <h4><b>Problem Solving</b></h4>
-            <Link to="/Question"><button class="button123 button3">Continue Practice</button></Link>
+            <Link to="/Question"><button className="button123 button3">Continue Practice</button></Link>
           </div>
         </div>
-        <div class="card11">
-          <div class="card12"><p>&nbsp;&nbsp;Language Profieciency</p><img class="new-banner-svg" alt="New" src="https://hrcdn.net/fcore/assets/svgs/new-banner-341e41b06d.svg" /></div>
-          <div class="container123">
+        <div className="card11">
+          <div className="card12"><p>&nbsp;&nbsp;Language Profieciency</p><img className="new-banner-svg" alt="New" src="https://hrcdn.net/fcore/assets/svgs/new-banner-341e41b06d.svg" /></div>
+          <div className="container123">
             <h4><b>C</b></h4>
-            <Link to="/Question"><button class="button123 button3">Continue Practice</button></Link>
+            <Link to="/Question"><button className="button123 button3">Continue Practice</button></Link>
           </div>
         </div>
       </div>
       <div className="Dashboard1"><h2><b>Mcq</b></h2></div>
       <div className="use1">
-        <div class="card11" >
-          <div class="card12"><p>&nbsp;&nbsp;C,C++</p><img class="new-banner-svg" alt="New" src="https://hrcdn.net/fcore/assets/svgs/new-banner-341e41b06d.svg" /></div>
-          <div class="container123">
+        <div className="card11" >
+          <div className="card12"><p>&nbsp;&nbsp;C,C++</p><img className="new-banner-svg" alt="New" src="https://hrcdn.net/fcore/assets/svgs/new-banner-341e41b06d.svg" /></div>
+          <div className="container123">
             <h4><b>Easy Mcq</b></h4>
-            <Link to="/Question"><button class="button123 button3">Continue Practice</button></Link>
+            <Link to="/Question"><button className="button123 button3">Continue Practice</button></Link>
           </div>
         </div>
-        <div class="card11">
-          <div class="card12"><p>&nbsp;&nbsp;File Handling</p><img class="new-banner-svg" alt="New" src="https://hrcdn.net/fcore/assets/svgs/new-banner-341e41b06d.svg" /></div>
-          <div class="container123">
+        <div className="card11">
+          <div className="card12"><p>&nbsp;&nbsp;File Handling</p><img className="new-banner-svg" alt="New" src="https://hrcdn.net/fcore/assets/svgs/new-banner-341e41b06d.svg" /></div>
+          <div className="container123">
             <h4><b>Diffcult Mcq</b></h4>
-            <Link to="/Question"> <button class="button123 button3">Continue Practice</button></Link>
+            <Link to="/Question"> <button className="button123 button3">Continue Practice</button></Link>
           </div>
         </div>
       </div>

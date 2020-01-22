@@ -8,7 +8,8 @@ import AceEditor from "react-ace";
 
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/theme-github";
- var key=true;
+
+var key=true;
 var arr=[];
 function change()
 {
@@ -50,12 +51,12 @@ export default class Compiler extends Component
   this.setState({value:e});
   }
   sample(){
-  let c=document.getElementById('sampleee').value=='C'?"#include<stdio.h>\nint main(){\nprintf(\"hello world\");\nreturn 0;\n}":document.getElementById('sampleee').value=='C++'?"#include<iostream>\nusing namespace std;\nint main(){\ncout<<\"hello world\";\nreturn 0;\n}":document.getElementById('sampleee').value=='Java'?"import java.util.*;\nclass Main{\npublic static void main(System.in){\nSystem.out.println('hello world');\n}":"print('hello')";
+  let c=document.getElementById('sampleee').value==='C'?"#include<stdio.h>\nint main(){\nprintf(\"hello world\");\nreturn 0;\n}":document.getElementById('sampleee').value==='C++'?"#include<iostream>\nusing namespace std;\nint main(){\ncout<<\"hello world\";\nreturn 0;\n}":document.getElementById('sampleee').value==='Java'?"import java.util.*;\nclass Main{\npublic static void main(System.in){\nSystem.out.println('hello world');\n}":"print('hello')";
     this.setState({value:c});
   }
   color(){
      this.setState({backgroundColor:document.getElementById('color').value});
-     let c=document.getElementById('color').value=="black"?"white" :"black";
+     let c=document.getElementById('color').value==="black"?"white" :"black";
     this.setState({color:c});
     console.log(this.state);
   }
@@ -169,10 +170,10 @@ export default class Compiler extends Component
         <input type="submit" value="Submit" id="submit" onClick={change}/></center>
         <br/>
         <span id="out"></span><br></br>
-        <img id="output1"style={{width:'10%',height:'10%'}}></img>&nbsp;&nbsp;&nbsp;&nbsp;
-        <img id="output2"style={{width:'10%',height:'10%'}}></img>&nbsp;&nbsp;&nbsp;&nbsp;
-        <img id="output3"style={{width:'10%',height:'10%'}}></img>&nbsp;&nbsp;&nbsp;&nbsp;
-        <img id="output4" style={{width:'10%',height:'10%'}}></img>&nbsp;&nbsp;&nbsp;&nbsp;
+        <img id="output1"style={{width:'10%',height:'10%'}} alt="testcases"></img>&nbsp;&nbsp;&nbsp;&nbsp;
+        <img id="output2"style={{width:'10%',height:'10%'}} alt="testcases"></img>&nbsp;&nbsp;&nbsp;&nbsp;
+        <img id="output3"style={{width:'10%',height:'10%'}} alt="testcases"></img>&nbsp;&nbsp;&nbsp;&nbsp;
+        <img id="output4" style={{width:'10%',height:'10%'}} alt="testcases"></img>&nbsp;&nbsp;&nbsp;&nbsp;
         <br></br>
          <u><h3 style={{color:"blue"}}>Output</h3></u>
         <textarea cols="50" rows="7" id="output" name="output"></textarea>

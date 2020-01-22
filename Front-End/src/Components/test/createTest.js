@@ -138,7 +138,7 @@ export default class Test extends Component{
          &nbsp;&nbsp;&nbsp;<span><b>IST?</b></span><br/><br></br>
          <button onClick={this.onNext}>Next</button><br></br><br></br>
          </div>
-        { this.state.Nex=="true"?<div style={{marginLeft:"40px"}}>
+        { this.state.Nex==="true"?<div style={{marginLeft:"40px"}}>
         <form onSubmit={this.add1} id="sub3">
          <b><u>Objective Questions</u></b><br/><br></br>
          <span><b>Question Name:</b></span><input type="text" name="objective" id="objective" ref={(input) => this.input = input}/><br/><br></br>
@@ -155,7 +155,7 @@ export default class Test extends Component{
          </div>:<span></span>
         }
         {
-        this.state.Nex1=="true"?<div style={{marginLeft:"40px"}}>
+        this.state.Nex1==="true"?<div style={{marginLeft:"40px"}}>
         <form onSubmit={this.add2}>
         <b><u>Coding Questions</u></b><br/><br></br>
         <span><b>Question Name</b></span><input type="text" name="code" ref={(input) => this.input = input}/><br/><br></br>

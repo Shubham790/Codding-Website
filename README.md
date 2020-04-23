@@ -1,4 +1,4 @@
-# SackerRank
+# Codding Website
 This A Codding Webiste For Code Practice Webiste.
 Firstly you have to download this.
 then in front end open cmd and type npm install this will install all the node_modules files.

@@ -47,6 +47,7 @@ export default class StudentDetail extends Component
         Axios.post('http://localhost:5000/userDetail/admin',{headers:auth,sss:a})
         .then(res=>{
            alert('admin added');
+           window.location="/UserDetail";
         })
         .catch(res=>{
         alert('admin not added');
@@ -57,6 +58,7 @@ export default class StudentDetail extends Component
             Axios.post('http://localhost:5000/userDetail/radmin',{headers:auth,sss:a})
             .then(res=>{
                alert('admin deleted');
+               window.location="/UserDetail"
             })
             .catch(res=>{
             alert('admin not deleted');
@@ -95,12 +97,13 @@ export default class StudentDetail extends Component
          Delete
          </button>
         </td>
-        <td>
+        {a.isAdmin?<td></td>:<td>
          <button onClick={()=>this.change1(a._id)}>Add Admin</button>
-        </td>
-        <td>
+        </td>}
+        {a.isAdmin?<td>
         <button onClick={()=>this.change2(a._id)}>Remove Admin</button>
-        </td></tr>:<span></span>})}
+        </td>:<td></td>}
+        </tr>:<span></span>})}
         </table>
         <Footer></Footer>
         </>
